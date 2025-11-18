@@ -74,3 +74,8 @@ footer {
         height: auto !important;
     }
 }
+
+/* Стили для поиска */
+#searchInput {
+    margin-top: 1rem;
+}
