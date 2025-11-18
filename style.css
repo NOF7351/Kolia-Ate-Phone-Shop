@@ -34,6 +34,33 @@ body {
     float: right;
 }
 
+.modal-body {
+    display: flex;
+    align-items: center;
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+}
+
+.modal-body img {
+    max-width: 200px;
+    /* Уменьшение размера изображения */
+    margin-right: 20px;
+    /* Отступ справа от изображения */
+}
+
+.modal-body .modal-text {
+    flex: 1;
+    /* Текст занимает оставшееся пространство */
+}
+
+.modal-body .modal-text h5 {
+    margin-top: 0;
+    /* Убираем верхний отступ у заголовка */
+}
+
 footer {
     position: relative;
     bottom: 0;
