@@ -1,65 +1,48 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Выбор устройства</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCT Captcha</title>
     <style>
-        /* Запрещаем выделение текста */
-        h1 {
-            user-select: none; /* Стандартное свойство для современных браузеров */
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE10+ */
+        .loader {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: block;
+            /* Изменено на block */
+            margin: 0 auto;
+            /* Центрируем элемент горизонтально */
+            border-top: 3px solid #FFF;
+            border-right: 3px solid transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
         }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        
-        .container {
-            text-align: center;
-        }
-        
-        button {
-            padding: 15px 30px;
-            margin-top: 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-        }
-        
-        button:hover {
-            transform: scale(1.05);
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
-<body>
-<div class="container">
-    <!-- Заголовок защищён от выделения -->
-    <h1 onselectstart="return false;" oncopy="return false;">Выберите устройство:</h1>
-    <button id="phoneButton">Телефон</button><br/>
-    <button id="desktopButton">Десктоп</button>
-</div>
 
-<script>
-// Настройки ссылок
-const phoneTargetUrl = 'https://nof7351.github.io/Kolia-Ate-Phone-Shop/nope.html';
-const desktopTargetUrl = 'https://nof7351.github.io/Kolia-Ate-Phone-Shop/nope.html';
+<body
+    style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #333; color: white; font-family: Arial, sans-serif; text-align: center;">
+    <h1>Перенаправление...</h1>
+    <span class="loader"></span>
 
-document.getElementById('phoneButton').addEventListener('click', function() {
-    // Открываем новую вкладку для телефона
-    window.open(phoneTargetUrl, '_blank');
-});
-
-document.getElementById('desktopButton').addEventListener('click', function() {
-    // Открываем новую вкладку для десктопа
-    window.open(desktopTargetUrl, '_blank');
-});
-</script>
+    <!-- Скрипт для автоматического перенаправления -->
+    <script type="text/javascript">
+        setTimeout(function () {
+            window.location.href = 'https://www.microsoft.com';
+        }, 3000); // задержка 3 секунды
+    </script>
 </body>
+
 </html>
