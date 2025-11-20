@@ -79,3 +79,23 @@ footer {
 #searchInput {
     margin-top: 1rem;
 }
+
+footer ul {
+    margin-bottom: 10px;
+    /* Отступ под ссылками */
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    /* Уменьшение размера текста */
+    opacity: 0.5;
+    /* Полупрозрачность */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    opacity: 1;
+    /* Полная непрозрачность при наведении */
+}
