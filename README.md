@@ -4,6 +4,6 @@
 <h5>  • Надёжно</h5>
 <h5>  • Быстро</h5>
 <h5>  • Безопасно</h5>
-<h5>  </p>
-<h5>  </p>
+<h5> _ </p>
+<h5> _ </p>
 <p>Thanks for GIF: <a href="https://www.flaticon.com/free-animated-icons/shopping-bag" title="shopping bag animated icons">Shopping bag animated icons created by Freepik - Flaticon</a></p>
