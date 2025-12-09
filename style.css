@@ -99,3 +99,14 @@ footer a:hover {
     opacity: 1;
     /* Полная непрозрачность при наведении */
 }
+
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+footer .container {
+    width: 100%;
+    max-width: 100%;
+}
