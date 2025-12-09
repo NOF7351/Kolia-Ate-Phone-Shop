@@ -8,6 +8,116 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/logo%20(2)-round-corners.png" type="image/x-icon">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .logo {
+            color: #ff6b6b !important;
+            text-decoration: none;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .card-body>*+* {
+            margin-top: 0.75em;
+        }
+
+        .badge {
+            float: right;
+        }
+
+        .modal-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-body img {
+            max-width: 200px;
+            /* Уменьшение размера изображения */
+            margin-right: 20px;
+            /* Отступ справа от изображения */
+        }
+
+        .modal-body .modal-text {
+            flex: 1;
+            /* Текст занимает оставшееся пространство */
+        }
+
+        .modal-body .modal-text h5 {
+            margin-top: 0;
+            /* Убираем верхний отступ у заголовка */
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Настройка ширины изображений на мобильниках */
+        @media (max-width: 767px) {
+            .card-img-top {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        /* Стили для поиска */
+        #searchInput {
+            margin-top: 1rem;
+        }
+
+        footer ul {
+            margin-bottom: 10px;
+            /* Отступ под ссылками */
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            /* Уменьшение размера текста */
+             opacity: 0.5;
+            /* Полупрозрачность */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            opacity: 1;
+            /* Полная непрозрачность при наведении */
+        }
+
+
+        footer .container {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -736,6 +846,7 @@
 </body>
 
 </html>
+
 
 
 
