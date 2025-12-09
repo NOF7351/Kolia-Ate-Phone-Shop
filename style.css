@@ -62,9 +62,9 @@ body {
 }
 
 footer {
+    width: 100%;
     position: relative;
     bottom: 0;
-    width: 100%;
 }
 
 /* Настройка ширины изображений на мобильниках */
@@ -100,13 +100,9 @@ footer a:hover {
     /* Полная непрозрачность при наведении */
 }
 
-footer {
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
 
 footer .container {
     width: 100%;
     max-width: 100%;
 }
+
