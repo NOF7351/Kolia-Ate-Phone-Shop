@@ -1,1 +1,888 @@
-<p>Сайт в разработке</p>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>КСТ Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/logo%20(2)-round-corners.png" type="image/x-icon">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .logo {
+            color: #ff6b6b !important;
+            text-decoration: none;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .card-body>*+* {
+            margin-top: 0.75em;
+        }
+
+        .badge {
+            float: right;
+        }
+
+        .modal-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-body img {
+            max-width: 200px;
+            /* Уменьшение размера изображения */
+            margin-right: 20px;
+            /* Отступ справа от изображения */
+        }
+
+        .modal-body .modal-text {
+            flex: 1;
+            /* Текст занимает оставшееся пространство */
+        }
+
+        .modal-body .modal-text h5 {
+            margin-top: 0;
+            /* Убираем верхний отступ у заголовка */
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Настройка ширины изображений на мобильниках */
+        @media (max-width: 767px) {
+            .card-img-top {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        /* Стили для поиска */
+        #searchInput {
+            margin-top: 1rem;
+        }
+
+        footer ul {
+            margin-bottom: 10px;
+            /* Отступ под ссылками */
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            /* Уменьшение размера текста */
+             opacity: 0.5;
+            /* Полупрозрачность */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            opacity: 1;
+            /* Полная непрозрачность при наведении */
+        }
+
+
+        footer .container {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <header class="mb-5 d-flex justify-content-between align-items-center">
+            <a href="#" class="logo fw-bold fs-1">Коля Съел Телефон</a>
+            <a href="https://github.com/NOF7351/Kolia-Ate-Phone-Shop/tree/main" target="_blank"
+                class="btn btn-outline-primary">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub"
+                    style="width: 30px; height: 30px;">
+            </a>
+        </header>
+
+      <div class="modal fade" id="congratulationModal" tabindex="-1" aria-labelledby="congratulationModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <!-- Используем класс modal-dialog-centered для центрирования -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="congratulationModalLabel">Поздравляем</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Теперь на все товары будет скидка 50%</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Открыть страницу товара</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="products" class="my-5">
+            <h2 class="text-center">Товары</h2>
+            <!-- Поиск -->
+            <div class="d-flex justify-content-center">
+                <input type="text" class="form-control w-50" id="searchInput" placeholder="Поиск товаров">
+            </div>
+            <div class="row row-cols-1 row-cols-xs-3 row-cols-md-3 g-4 my-3">
+                <!-- Товар №1 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/bolshayakoshka.jpg"
+                            class="card-img-top" alt="Товар 1" data-bs-toggle="modal" data-bs-target="#product1">
+                        <div class="card-body">
+                            <h5 class="card-title">"Гибкая" Кошка</h5>
+                            <p class="card-text">[path error]</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>150 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №2 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/brelokslubimtextom.jpg"
+                            class="card-img-top" alt="Товар 2" data-bs-toggle="modal" data-bs-target="#product2">
+                        <div class="card-body">
+                            <h5 class="card-title">Брелок с любым текстом</h5>
+                            <p class="card-text">Всегда мечтали о именном брелке? Тогда заказывайте брелок со своим
+                                именем и не только!</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>50 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №3 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/kakasbkabig.jpg"
+                            class="card-img-top" alt="Товар 3" data-bs-toggle="modal" data-bs-target="#product3">
+                        <div class="card-body">
+                            <h5 class="card-title">Муляж какашки</h5>
+                            <p class="card-text">Хотели, чтобы ваш стол смотрелся круче и смешнее? Муляж какашки с
+                                глазами поможет вам быть в хорошем настроении :)</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>50 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №4 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/elochka.jpg"
+                            class="card-img-top" alt="Товар 4" data-bs-toggle="modal" data-bs-target="#product4">
+                        <div class="card-body">
+                            <h5 class="card-title">Ёлка с шариком</h5>
+                            <p class="card-text">Украсьте свой стол красивой ёлкой, которая будет создавать зимнюю
+                                атмосферу</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>150 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №5 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/podstavkagood.jpg"
+                            class="card-img-top" alt="Товар 5" data-bs-toggle="modal" data-bs-target="#product5">
+                        <div class="card-body">
+                            <h5 class="card-title">Подставка (15мм)</h5>
+                            <p class="card-text">Если вам хочется купить хорошую и крепкую подставку для телефона, то
+                                можете не сомневаться в своём выборе.</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>70 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №6 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/podstavkamini.jpg"
+                            class="card-img-top" alt="Товар 6" data-bs-toggle="modal" data-bs-target="#product6">
+                        <div class="card-body">
+                            <h5 class="card-title">Подставка-брелок (9мм)</h5>
+                            <p class="card-text">Очень удобная подставка, если брать её с собой. Повесьте её на что
+                                угодно, и пользуйтесь с удовольствием!</p>
+                            <span class="badge rounded-pill bg-success">Доступно!</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>35 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №7 -->
+                 <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product2">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №8 -->
+                 <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product2">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар №9 -->
+                
+
+                <!-- Товар №10 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 10" data-bs-toggle="modal"
+                            data-bs-target="#product10">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Модальные окна -->
+        <!-- Товар №1 -->
+        <div class="modal fade" id="product1" tabindex="-1" aria-labelledby="product1Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product1Label">"Гибкая" Кошка</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/bolshayakoshka.jpg" class="img-fluid" alt="Товар 1">
+                        <p class="card-text">[path error]</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №2 -->
+        <div class="modal fade" id="product2" tabindex="-1" aria-labelledby="product2Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product2Label">Брелок с любым текстом</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/brelokslubimtextom.jpg" class="img-fluid" alt="Товар 2">
+                        <p class="card-text">Всегда мечтали о именном брелке? Тогда заказывайте брелок со своим именем и
+                            не только!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №3 -->
+        <div class="modal fade" id="product3" tabindex="-1" aria-labelledby="product3Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product3Label">Муляж какашки</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/kakasbkabig.jpg" class="img-fluid" alt="Товар 3">
+                        <p class="card-text">Хотели, чтобы ваш стол смотрелся круче и смешнее? Муляж какашки с глазами
+                            поможет вам быть в хорошем настроении :)</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №4 -->
+        <div class="modal fade" id="product4" tabindex="-1" aria-labelledby="product4Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product4Label">Ёлка с шариком</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/elochka.jpg"
+                            class="img-fluid" alt="Товар 4">
+                        <p class="card-text">Украсьте свой стол красивой ёлкой, которая будет создавать зимнюю атмосферу
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №5 -->
+        <div class="modal fade" id="product5" tabindex="-1" aria-labelledby="product5Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product5Label">Подставка (15мм)</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/podstavkagood.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">Если вам хочется купить хорошую и крепкую подставку для телефона, то можете
+                            не сомневаться в своём выборе.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №6 -->
+        <div class="modal fade" id="product6" tabindex="-1" aria-labelledby="product6Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product6Label">Подставка-брелок (9мм)</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/podstavkamini.jpg" class="img-fluid" alt="Товар 6">
+                        <p class="card-text">Очень удобная подставка, если брать её с собой. Повесьте её на что угодно,
+                            и пользуйтесь с удовольствием!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №7 -->
+        <div class="modal fade" id="product7" tabindex="-1" aria-labelledby="product7Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product7Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 7">
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №8 -->
+        <div class="modal fade" id="product8" tabindex="-1" aria-labelledby="product7Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product8Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 7">
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №9 -->
+        <div class="modal fade" id="product9" tabindex="-1" aria-labelledby="product7Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product9Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 7">
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Товар №10 -->
+        <div class="modal fade" id="product10" tabindex="-1" aria-labelledby="product7Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product10Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 7">
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+       <!-- ОНЛАЙН - ТОВАРЫ -->
+        <section id="products" class="my-5">
+            <h2 class="text-center">Онлайн-товары</h2>
+            <div class="row row-cols-1 row-cols-xs-3 row-cols-md-3 g-4 my-3">
+                <!-- Товар №1 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg"
+                            class="card-img-top" alt="Товар 1" data-bs-toggle="modal" data-bs-target="#product11">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Товар №2 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg"
+                            class="card-img-top" alt="Товар 2" data-bs-toggle="modal" data-bs-target="#product22">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Товар №3 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product3">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Товар №4 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product4">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Товар №5 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product5">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Товар №6 -->
+                
+        
+                <!-- Товар №7 -->
+                
+        
+                <!-- Товар №8 -->
+                
+        
+                <!-- Товар №9 -->
+                
+        
+                <!-- Товар №10 -->
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="card-img-top" alt="Товар 2" data-bs-toggle="modal"
+                            data-bs-target="#product10">
+                        <div class="card-body">
+                            <h5 class="card-title">Уже скоро...</h5>
+                            <p class="card-text">...</p>
+                            <span class="badge rounded-pill bg-secondary">Скоро...</span>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <strong>0 ₽</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Модальные окна -->
+        <!-- Товар №1 -->
+        <div class="modal fade" id="product11" tabindex="-1" aria-labelledby="product11Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product11Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №2 -->
+        <div class="modal fade" id="product22" tabindex="-1" aria-labelledby="product22Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product22Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №3 -->
+        <div class="modal fade" id="product33" tabindex="-1" aria-labelledby="product33Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product33Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №4 -->
+        <div class="modal fade" id="product44" tabindex="-1" aria-labelledby="product44Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product44Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №5 -->
+        <div class="modal fade" id="product55" tabindex="-1" aria-labelledby="product55Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product55Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №6 -->
+        <div class="modal fade" id="product66" tabindex="-1" aria-labelledby="product66Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product66Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №7 -->
+        <div class="modal fade" id="product77" tabindex="-1" aria-labelledby="product77Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product77Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №8 -->
+        <div class="modal fade" id="product88" tabindex="-1" aria-labelledby="product88Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product88Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №9 -->
+        <div class="modal fade" id="product99" tabindex="-1" aria-labelledby="product99Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product99Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Товар №10 -->
+        <div class="modal fade" id="product100" tabindex="-1" aria-labelledby="product100Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="product100Label">Уже скоро...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="https://raw.githubusercontent.com/NOF7351/Kolia-Ate-Phone-Shop/refs/heads/main/Resourses/white.jpg" class="img-fluid" alt="Товар 5">
+                        <p class="card-text">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5 py-3 text-center bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled">
+                            <li><a href="https://nof7351.github.io/Kolia-Ate-Phone-Shop/about" class="text-white">О сайте</a></li>
+                            <li><a href="https://nof7351.github.io/Kolia-Ate-Phone-Shop/contacts" class="text-white">Контакты</a></li>
+                            <li><a href="https://nof7351.github.io/Kolia-Ate-Phone-Shop/buyprocess" class="text-white">Процесс покупки</a></li>
+                            <li><a href="https://nof7351.github.io/Kolia-Ate-Phone-Shop/wanttosell" class="text-white">Хочу стать продавцом</a></li>
+                        </ul>
+                        <p> </p>
+                        <p>© 2025 Коля Съел Телефон | Все права защищены</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+
+         <script>
+        let docTtitle = document.title;
+        window.addEventListener("blur", () => {
+            document.title = "Уже скучаю по вам 😢";
+        });
+        window.addEventListener("focus", () => {
+            document.title = docTtitle;
+        });
+        </script>
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=105381240', 'ym');
+
+            ym(105381240, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true, trackLinks: true });
+        </script>
+        <noscript>
+            <div><img src="https://mc.yandex.ru/watch/105381240" style="position:absolute; left:-9999px;" alt="" />
+            </div>
+        </noscript>
+        <!-- /Yandex.Metrika counter -->
+
+        <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                  var myModal = new bootstrap.Modal(document.getElementById('congratulationModal'), {
+                      keyboard: false
+                  });
+                  myModal.show();
+              });
+          </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
