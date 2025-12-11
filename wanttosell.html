@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенаправление...</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .loader, .loader:before, .loader:after {
+            border-radius: 50%;
+            width: 4em; /* Увеличенный размер */
+            height: 4em; /* Увеличенный размер */
+            animation-fill-mode: both;
+            animation: bblFadInOut 1.8s infinite ease-in-out;
+        }
+
+        .loader {
+            color: #FFF;
+            font-size: 7px;
+            position: relative;
+            text-indent: -9999em;
+            transform: translateZ(0);
+            animation-delay: -0.16s;
+        }
+
+        .loader:before,
+        .loader:after {
+            content: '';
+            position: absolute;
+            top: 0;
+        }
+
+        .loader:before {
+            left: -6em; /* Больше расстояние слева */
+            animation-delay: -0.32s;
+        }
+
+        .loader:after {
+            left: 6em; /* Больше расстояние справа */
+        }
+
+        @keyframes bblFadInOut {
+            0%, 80%, 100% { box-shadow: 0 4em 0 -2em } /* Большее смещение тени */
+            40% { box-shadow: 0 4em 0 0 }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        span.fact-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Перенаправление...</h1>
+    <h3>Вы покидаете сайт магазина Коля Съел Телефон</h3>
+    <span class="loader"></span>
+
+    <!-- Контейнер для вывода надписи и самого факта -->
+    <footer id="fact-container">
+        <span class="fact-label">Интересный факт:</span><br />
+        <span id="random-fact"></span>
+    </footer>
+
+    <!-- Скрипт для показа случайного факта -->
+    <script type="text/javascript">
+        const facts = [
+            "Самое глубокое озеро мира — Байкал.",
+            "Первый полёт человека в космос совершил Юрий Гагарин.",
+            "Москва — крупнейший город Европы по численности населения.",
+            "Самым высоким зданием России является башня Федерация в Москве.",
+            "Русский алфавит состоит из 33 букв.",
+            "Самая длинная железнодорожная магистраль — Транссибирская железная дорога."
+        ];
+
+        function showRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('random-fact').innerText = `"${facts[randomIndex]}"`
+        }
+
+        // Отображаем факт сразу
+        showRandomFact();
+
+        // Перенаправление через 5 секунд
+        setTimeout(function () {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeyEiYn_qqVnJ1j7fy3cgDkeT_8HTIzGlfFFMHc1-HgJAIXdw/viewform?usp=dialog';
+        }, 5000); // Задержка 5 секунд
+    </script>
+</body>
+</html>
