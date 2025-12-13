@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Перенаправление...</title>
+    <title>До Нового Года осталось...</title>
     <style>
         body {
             display: flex;
@@ -17,46 +17,27 @@
             text-align: center;
         }
 
-        h1 {
+        header {
+            font-size: 2rem;
             margin-bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+            transition: all 0.5s cubic-bezier(.17,.67,.55,.98);
         }
 
-        .loader, .loader:before, .loader:after {
-            border-radius: 50%;
-            width: 4em; /* Увеличенный размер */
-            height: 4em; /* Увеличенный размер */
-            animation-fill-mode: both;
-            animation: bblFadInOut 1.8s infinite ease-in-out;
+        section {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+            transition: all 0.5s cubic-bezier(.17,.67,.55,.98);
         }
 
-        .loader {
-            color: #FFF;
-            font-size: 7px;
-            position: relative;
-            text-indent: -9999em;
-            transform: translateZ(0);
-            animation-delay: -0.16s;
-        }
-
-        .loader:before,
-        .loader:after {
-            content: '';
-            position: absolute;
-            top: 0;
-        }
-
-        .loader:before {
-            left: -6em; /* Больше расстояние слева */
-            animation-delay: -0.32s;
-        }
-
-        .loader:after {
-            left: 6em; /* Больше расстояние справа */
-        }
-
-        @keyframes bblFadInOut {
-            0%, 80%, 100% { box-shadow: 0 4em 0 -2em } /* Большее смещение тени */
-            40% { box-shadow: 0 4em 0 0 }
+        span.time-part {
+            font-weight: bold;
+            margin: 0 10px;
         }
 
         footer {
@@ -71,11 +52,21 @@
         span.fact-label {
             font-weight: bold;
         }
+
+        /* Анимация появления */
+        .appear {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <h1>Перенаправление...</h1>
-    <span class="loader"></span>
+    <header>До Нового Года осталось:</header>
+
+    <section id="countdown">
+        <span class="time-part days">--</span> дней
+    </section>
 
     <!-- Контейнер для вывода надписи и самого факта -->
     <footer id="fact-container">
@@ -83,8 +74,28 @@
         <span id="random-fact"></span>
     </footer>
 
-    <!-- Скрипт для показа случайного факта -->
+    <!-- Скрипт для показа случайного факта и обратного отсчета -->
     <script type="text/javascript">
+        const newYearDate = new Date(new Date().getFullYear() + 1, 0, 1); // Дата следующего Нового Года
+        const countdownSection = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = newYearDate - now;
+            
+            if (diff <= 0) return; // Уже наступил Новый Год
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const days = Math.floor(totalSeconds / (24 * 60 * 60));
+
+            document.querySelector('.days').innerText = String(days).padStart(2, '0'); // Заполняем нулями двухсимвольные значения
+        }
+
+        // Периодически обновляем таймер каждые 1000 миллисекунд
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Сразу запускаем обновление
+
+        // Случайный факт
         const facts = [
             "Самое глубокое озеро мира — Байкал.",
             "Первый полёт человека в космос совершил Юрий Гагарин.",
@@ -102,9 +113,14 @@
         // Отображаем факт сразу
         showRandomFact();
 
+        // Открытие элементов через секунду
+        setTimeout(() => {
+            document.querySelectorAll('header, section').forEach(el => el.classList.add('appear'));
+        }, 1000); // Пауза 1 секунда
+
         // Перенаправление через 5 секунд
         setTimeout(function () {
-            window.location.href = 'https://nof7351.github.io/Kolia-Ate-Phone-Shop/shop';
+            window.location.href = 'https://nof7351.github.io/Kolia-Ate-Phone-Shop/shop.html';
         }, 5000); // Задержка 5 секунд
     </script>
 </body>
